@@ -72,7 +72,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:onClick="@{viewModel::onLonginCLicked}"
+            android:onClick="onLongInCLick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
