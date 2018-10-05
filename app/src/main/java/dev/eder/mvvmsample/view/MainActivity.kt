@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() , LoginResultCallbacks {
                 R.layout.activity_main)
         activityMainBinding.viewModel = ViewModelProviders.of(
                 this,
-                LoginViewModelFactory(this))
+                LoginViewModelFactory(this,this@MainActivity))
                 .get(LoginViewModel::class.java)
     }
 

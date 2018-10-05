@@ -11,7 +11,7 @@ import android.app.Activity
 import android.view.inputmethod.InputMethodManager
 
 
-class LoginViewModel(private val loginResultCallbacks: LoginResultCallbacks) : ViewModel() {
+class LoginViewModel(private val loginResultCallbacks: LoginResultCallbacks, private val activity: Activity) : ViewModel() {
 
     private val user: User
 
@@ -53,6 +53,7 @@ class LoginViewModel(private val loginResultCallbacks: LoginResultCallbacks) : V
 
     //method to Process Login
     fun onLonginCLicked(view: View) {
+        hideKeyboard()
         val errorCode = user.isValidData()
         when (errorCode) {
             0 -> loginResultCallbacks.onError("Campos vacios")
@@ -62,7 +63,7 @@ class LoginViewModel(private val loginResultCallbacks: LoginResultCallbacks) : V
         }
     }
 
-    fun hideKeyboard(activity: Activity) {
+    fun hideKeyboard() {
 
         val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         var view = activity.currentFocus
